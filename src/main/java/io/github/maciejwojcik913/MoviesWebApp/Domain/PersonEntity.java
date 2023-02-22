@@ -20,7 +20,7 @@ public class PersonEntity extends AbstractEntity {
     @Column(name = "last_name", nullable = false, length = 50)
     private String lastName;
 
-    @Column(name = "birth_date")
+    @Column(name = "birth_date", nullable = false)
     private LocalDate birthDate;
 
     @Column(length = 1000)
@@ -35,9 +35,10 @@ public class PersonEntity extends AbstractEntity {
     public PersonEntity() {
     }
 
-    public PersonEntity(String firstName, String lastName) {
+    public PersonEntity(String firstName, String lastName, LocalDate birthDate) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.birthDate = birthDate;
     }
 
     public Long getId() {
