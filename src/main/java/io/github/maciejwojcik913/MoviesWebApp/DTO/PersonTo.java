@@ -6,6 +6,10 @@ import io.github.maciejwojcik913.MoviesWebApp.Exceptions.IncorrectTransferObject
 import java.time.LocalDate;
 import java.util.Objects;
 
+/**
+ * Transfer object class for PersonEntity.<br>
+ * Requires not null and not empty parameters: firstName, lastName, birthDate
+ */
 public class PersonTo {
     private String firstName;
     private String lastName;
@@ -18,6 +22,13 @@ public class PersonTo {
     private PersonTo() {
     }
 
+    /**
+     * Constructor which provides not null and not empty parameters.
+     * @param firstName required
+     * @param lastName required
+     * @param birthDate required
+     * @throws IncorrectTransferObjectException if any parameter is null or empty.
+     */
     public PersonTo(String firstName, String lastName, LocalDate birthDate) {
         this();
 
@@ -35,6 +46,16 @@ public class PersonTo {
         this.birthDate = birthDate;
     }
 
+    /**
+     * Parameters requirements:
+     * @param firstName not null, not empty
+     * @param lastName not null, not empty
+     * @param birthDate not null
+     * @param id optional
+     * @param description optional
+     * @param photoUrl optional
+     * @param rating optional
+     */
     public PersonTo(String firstName, String lastName, LocalDate birthDate, Long id, String description, String photoUrl, RatingEmbeddable rating) {
         this(firstName, lastName, birthDate);
         this.id = id;
