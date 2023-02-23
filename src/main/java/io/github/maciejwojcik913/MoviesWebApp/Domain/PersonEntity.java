@@ -4,6 +4,7 @@ import io.github.maciejwojcik913.MoviesWebApp.Domain.Abstract.AbstractEntity;
 import io.github.maciejwojcik913.MoviesWebApp.Domain.Embeddable.RatingEmbeddable;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 
 @Entity
@@ -15,9 +16,11 @@ public class PersonEntity extends AbstractEntity {
     private Long id;
 
     @Column(name = "first_name", nullable = false, length = 50)
+    @NotBlank(message = "First name may not be blank.")
     private String firstName;
 
     @Column(name = "last_name", nullable = false, length = 50)
+    @NotBlank(message = "Last name may not be blank.")
     private String lastName;
 
     @Column(name = "birth_date", nullable = false)
@@ -27,7 +30,7 @@ public class PersonEntity extends AbstractEntity {
     private String description;
 
     @Column(name = "photo_url")
-    private String photo;
+    private String photoUrl;
 
     @Embedded
     private RatingEmbeddable rating;
@@ -81,12 +84,12 @@ public class PersonEntity extends AbstractEntity {
         this.description = description;
     }
 
-    public String getPhoto() {
-        return photo;
+    public String getPhotoUrl() {
+        return photoUrl;
     }
 
-    public void setPhoto(String photo) {
-        this.photo = photo;
+    public void setPhotoUrl(String photoUrl) {
+        this.photoUrl = photoUrl;
     }
 
     public RatingEmbeddable getRating() {

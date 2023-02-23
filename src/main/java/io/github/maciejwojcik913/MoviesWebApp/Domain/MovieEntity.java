@@ -4,6 +4,7 @@ import io.github.maciejwojcik913.MoviesWebApp.Domain.Abstract.AbstractEntity;
 import io.github.maciejwojcik913.MoviesWebApp.Domain.Embeddable.RatingEmbeddable;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 import java.time.LocalDate;
 import java.util.HashSet;
 import java.util.Set;
@@ -17,6 +18,7 @@ public class MovieEntity extends AbstractEntity {
     private Long id;
 
     @Column(nullable = false, length = 80)
+    @NotBlank(message = "Title name may not be blank.")
     private String title;
 
     @Column(nullable = false, name = "premiere_date")
