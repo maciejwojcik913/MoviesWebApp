@@ -2,6 +2,7 @@ package io.github.maciejwojcik913.MoviesWebApp.Domain.Embeddable;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import java.util.Objects;
 
 @Embeddable
 public class RatingEmbeddable {
@@ -34,4 +35,16 @@ public class RatingEmbeddable {
         this.rating = rating;
     }
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        RatingEmbeddable that = (RatingEmbeddable) o;
+        return Objects.equals(votes, that.votes) && Objects.equals(rating, that.rating);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(votes, rating);
+    }
 }
