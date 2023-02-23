@@ -16,7 +16,7 @@ public class PersonMapper {
 
     /**
      * Maps PersonEntity object to transfer object.
-     * @param entity PersonEntity.class object to be mapped.
+     * @param entity PersonEntity object to be mapped.
      * @throws IncorrectEntityException if given entity is null.
      * @return PersonTo transfer object.
      */
@@ -39,7 +39,7 @@ public class PersonMapper {
 
     /**
      * Maps PersonTo transfer object to PersonEntity.
-     * @param person - PersonTo.class object to be mapped.
+     * @param person - PersonTo object to be mapped.
      * @throws IncorrectTransferObjectException if transfer object is null
      * @return PersonEntity object.
      */
@@ -71,7 +71,7 @@ public class PersonMapper {
     /**
      * Maps collection of PersonTo transfer objects to List of PersonEntity entities.<br>
      * More information by <code>map2Entity</code> method in this class.
-     * @param countryTos collection of PersonEntity.
+     * @param countryTos collection of PersonTo.
      * @return List of PersonEntity
      * @throws IncorrectTransferObjectException if provided collection contains any null value.
      */
