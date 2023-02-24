@@ -1,9 +1,6 @@
 package io.github.maciejwojcik913.MoviesWebApp.DTO;
 
-import io.github.maciejwojcik913.MoviesWebApp.Domain.CountryEntity;
 import io.github.maciejwojcik913.MoviesWebApp.Domain.Embeddable.RatingEmbeddable;
-import io.github.maciejwojcik913.MoviesWebApp.Domain.GenreEntity;
-import io.github.maciejwojcik913.MoviesWebApp.Domain.PersonEntity;
 import io.github.maciejwojcik913.MoviesWebApp.Exceptions.IncorrectTransferObjectException;
 
 import java.time.LocalDate;
@@ -11,6 +8,10 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+/**
+ * Transfer object class for MovieEntity.<br>
+ * Requires not null and not empty parameters: title, premiereDate.
+ */
 public class MovieTo {
 
     private String title;
@@ -19,15 +20,21 @@ public class MovieTo {
     private String description;
     private String coverUrl;
     private RatingEmbeddable rating;
-    private Set<GenreEntity> genres = new HashSet<>();
-    private Set<CountryEntity> productionCountries = new HashSet<>();
-    private Set<PersonEntity> directors = new HashSet<>();
-    private Set<PersonEntity> scenarists = new HashSet<>();
-    private Set<PersonEntity> actors = new HashSet<>();
+    private Set<GenreTo> genres = new HashSet<>();
+    private Set<CountryTo> productionCountries = new HashSet<>();
+    private Set<PersonTo> directors = new HashSet<>();
+    private Set<PersonTo> scenarists = new HashSet<>();
+    private Set<PersonTo> actors = new HashSet<>();
 
     private MovieTo() {
     }
 
+    /**
+     * Constructor that provides not null and not empty parameters.
+     * @param title required
+     * @param premiereDate required
+     * @throws IncorrectTransferObjectException if any parameter is null or empty.
+     */
     public MovieTo(String title, LocalDate premiereDate) {
         this();
 
@@ -41,7 +48,21 @@ public class MovieTo {
         this.premiereDate = premiereDate;
     }
 
-    public MovieTo(String title, LocalDate premiereDate, Long id, String description, String coverUrl, RatingEmbeddable rating, Set<GenreEntity> genres, Set<CountryEntity> productionCountries, Set<PersonEntity> directors, Set<PersonEntity> scenarists, Set<PersonEntity> actors) {
+    /**
+     * Parameters requirements:
+     * @param title not null, not empty
+     * @param premiereDate not null
+     * @param id optional
+     * @param description optional
+     * @param coverUrl optional
+     * @param rating optional
+     * @param genres optional
+     * @param productionCountries optional
+     * @param directors optional
+     * @param scenarists optional
+     * @param actors optional
+     */
+    public MovieTo(String title, LocalDate premiereDate, Long id, String description, String coverUrl, RatingEmbeddable rating, Set<GenreTo> genres, Set<CountryTo> productionCountries, Set<PersonTo> directors, Set<PersonTo> scenarists, Set<PersonTo> actors) {
         this(title, premiereDate);
         this.id = id;
         this.description = description;
@@ -94,43 +115,43 @@ public class MovieTo {
         this.rating = rating;
     }
 
-    public Set<GenreEntity> getGenres() {
+    public Set<GenreTo> getGenres() {
         return genres;
     }
 
-    public void setGenres(Set<GenreEntity> genres) {
+    public void setGenres(Set<GenreTo> genres) {
         this.genres = genres;
     }
 
-    public Set<CountryEntity> getProductionCountries() {
+    public Set<CountryTo> getProductionCountries() {
         return productionCountries;
     }
 
-    public void setProductionCountries(Set<CountryEntity> productionCountries) {
+    public void setProductionCountries(Set<CountryTo> productionCountries) {
         this.productionCountries = productionCountries;
     }
 
-    public Set<PersonEntity> getDirectors() {
+    public Set<PersonTo> getDirectors() {
         return directors;
     }
 
-    public void setDirectors(Set<PersonEntity> directors) {
+    public void setDirectors(Set<PersonTo> directors) {
         this.directors = directors;
     }
 
-    public Set<PersonEntity> getScenarists() {
+    public Set<PersonTo> getScenarists() {
         return scenarists;
     }
 
-    public void setScenarists(Set<PersonEntity> scenarists) {
+    public void setScenarists(Set<PersonTo> scenarists) {
         this.scenarists = scenarists;
     }
 
-    public Set<PersonEntity> getActors() {
+    public Set<PersonTo> getActors() {
         return actors;
     }
 
-    public void setActors(Set<PersonEntity> actors) {
+    public void setActors(Set<PersonTo> actors) {
         this.actors = actors;
     }
 
