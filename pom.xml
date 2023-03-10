@@ -12,7 +12,7 @@
 	<artifactId>MoviesWebApp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>MoviesWebApp</name>
-	<description>Movies and peope database application.</description>
+	<description>Movies and people database application.</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
